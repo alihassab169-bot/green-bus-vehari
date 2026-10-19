@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Bus Vehari - وہاڑی گرین بس</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+body{margin:0;font-family:sans-serif;background:#f0fdf4}
+.header{background:#16a34a;color:white;padding:15px;text-align:center;font-size:22px;font-weight:bold}
+#map{height:400px;width:100%}
+.stops{padding:15px}
+.stop{background:white;margin:8px 0;padding:12px;border-radius:10px;border-left:5px solid #16a34a;box-shadow:0 2px 5px #0001}
+.btn{background:#16a34a;color:white;padding:12px;width:90%;margin:15px auto;display:block;border:none;border-radius:10px;font-size:18px}
+</style>
+</head>
+<body>
+<div class="header">🚍 گرین بس وہاڑی - Mailsi to Vehari</div>
+<div id="map"></div>
+<div class="stops">
+<div class="stop">📍 <b>میلسی بس سٹینڈ</b> - شروع</div>
+<div class="stop">📍 <b>وہاڑی چوک میلسی</b></div>
+<div class="stop">📍 <b>ٹبہ سلطان پور</b></div>
+<div class="stop">📍 <b>وہاڑی جنرل بس سٹینڈ</b> - آخر</div>
+</div>
+<button class="btn" onclick="alert('بس 10 منٹ میں آ رہی ہے - ان شاء اللہ')">بس کہاں ہے؟ Live دیکھیں</button>
+<script>
+var map = L.map('map').setView([29.9, 72.35], 11);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+var route = [[29.801, 72.175],[29.86, 72.25],[29.92, 72.32],[30.045, 72.35]];
+L.polyline(route, {color:'#16a34a', weight:6}).addTo(map);
+L.marker([29.801, 72.175]).addTo(map).bindPopup("میلسی بس سٹینڈ");
+L.marker([30.045, 72.35]).addTo(map).bindPopup("وہاڑی بس سٹینڈ");
+L.marker([29.92, 72.32]).addTo(map).bindPopup("ٹبہ سلطان پور");
+</script>
+</body>
+  </html>
